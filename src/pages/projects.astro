@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+const projects = [
+  {
+    id: 1,
+    title: "This",
+    description:
+      "A full-stack chat application built with Node.js backend and React frontend. Features real-time messaging, user authentication, and room management.",
+    technologies: ["Node.js", "React", "WebSocket", "PostgreSQL"],
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "That",
+    description:
+      "An API gateway written in Go that handles routing, rate limiting, and request validation for multiple backend services.",
+    technologies: ["Go", "gRPC", "Redis", "Kubernetes"],
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "This and that",
+    description:
+      "A comprehensive analytics dashboard built with React and Node.js backend. Displays real-time data visualization and user insights.",
+    technologies: ["React", "Node.js", "D3.js", "PostgreSQL"],
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "This and that",
+    description:
+      "A high-performance file processing service built in Go. Handles concurrent file uploads, validation, and transformation.",
+    technologies: ["Go", "gRPC", "AWS S3", "Docker"],
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "This and that",
+    description:
+      "Full-stack e-commerce solution with Go backend handling payments and inventory, React frontend with a smooth shopping experience.",
+    technologies: ["Go", "React", "Stripe", "PostgreSQL"],
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "This and that",
+    description:
+      "A lightweight CMS built with Node.js and React. Features a powerful editor, version control, and content scheduling.",
+    technologies: ["Node.js", "React", "MongoDB", "GraphQL"],
+    link: "#",
+  },
+];
+---
+
+<Layout>
+  <main
+    class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-850 to-slate-900"
+  >
+    <div class="pt-32 pb-20 px-6">
+      <div class="max-w-4xl mx-auto page-transition-in">
+        <section>
+          <div class="mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Projects
+            </h1>
+            <p class="text-foreground/60 text-lg">
+              A selection of projects I've built.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+              projects.map((project) => (
+                <div class="p-6 border border-foreground/10 rounded-lg hover:border-foreground/30 transition-all duration-300 hover:bg-slate-800/50 group cursor-pointer">
+                  <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p class="text-foreground/70 text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        class="px-3 py-1 text-xs bg-foreground/10 text-foreground/80 rounded-full border border-foreground/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section class="mt-20 pt-16 border-t border-foreground/10">
+          <div class="text-center space-y-4">
+            <p class="text-foreground/60">Interested in collaborating?</p>
+            <a
+              href="/contact"
+              class="inline-block px-8 py-3 bg-foreground text-background rounded-md font-medium hover:opacity-90 transition-opacity"
+            >
+              Let's Talk
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

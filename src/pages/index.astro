@@ -1,11 +1,87 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Navigation from "../components/Navigation.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const showDance = false;
+// const [showSecondSection, setShowSecondSection] = useState(false);
+
+const showSecondSection = true;
+const introTexts = [
+  "Building scalable backends.",
+  "Crafting dynamic frontends.",
+  "Full-stack engineer passionate about clean code.",
+];
 ---
 
 <Layout>
-	<Welcome />
+  <main
+    class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+  >
+    <div class="pt-32 pb-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        {/* First Section - Typing Animation */}
+        <section class="mb-20">
+          <div class="space-y-6">
+            {
+              introTexts.map((text, index) => (
+                <div class="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                  {index === introTexts.length - 1 ? (
+                    // <TypingText
+                    //   text={text}
+                    //   onComplete={() => setShowSecondSection(true)}
+                    //   speed={30}
+                    // />
+                    <div>{text}</div>
+                  ) : (
+                    <span>{text}</span>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        {/* Second Section - Slide Up Animation */}
+        {
+          showSecondSection && (
+            <section class="slide-up space-y-8">
+              <div class="w-32 h-0.5 bg-foreground/30" />
+
+              <div class="space-y-6 text-foreground/80 text-lg leading-relaxed max-w-2xl">
+                <p>
+                  I specialize in building robust, scalable applications using
+                  Go for backend systems and React for frontend interfaces. With
+                  Node.js, I bridge the gap between frontend and backend
+                  development.
+                </p>
+                <p>
+                  My focus is on writing clean, maintainable code that solves
+                  real problems. I believe in simple, elegant solutions over
+                  complex ones.
+                </p>
+              </div>
+
+              <div class="flex gap-4 pt-8">
+                <a
+                  href="/projects"
+                  class="px-6 py-3 bg-foreground text-background rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  View Projects
+                </a>
+                <a
+                  href="/contact"
+                  class="px-6 py-3 border border-foreground/30 text-foreground rounded-md text-sm font-medium hover:border-foreground/60 transition-colors"
+                >
+                  Get in Touch
+                </a>
+              </div>
+            </section>
+          )
+        }
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style></style>
