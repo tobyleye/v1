@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 ---
@@ -12,9 +14,13 @@ import "../styles/global.css";
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Oluwatobi Oyeleye</title>
+    <ClientRouter />
   </head>
-  <body>
+  <body
+    class="pt-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+  >
     <Navigation />
+
     <slot />
   </body>
 </html>

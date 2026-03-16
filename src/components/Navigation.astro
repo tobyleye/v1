@@ -2,21 +2,20 @@
 "use client";
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const pathname = "";
 ---
 
 <div>
-  <nav
-    class="fixed top-0 left-0 right-0 z-50 border-b border-muted bg-background/80 backdrop-blur-sm"
-  >
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="text-sm font-medium text-foreground">Dev</div>
+      <div class="text-sm font-medium text-foreground">
+        <a href="/">Oluwatobi</a>
+      </div>
       <div class="flex gap-8">
         {
           links.map((link) => (
